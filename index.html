@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>BOKA SCRIPT</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: blue;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+/* حركة العنوان */
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    animation: updown 2s infinite ease-in-out;
+}
+
+@keyframes updown {
+    0% { top: 0px; }
+    50% { top: 15px; }
+    100% { top: 0px; }
+}
+
+.box {
+    margin-top: 20px;
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background: black;
+    color: white;
+}
+
+.copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: black;
+}
+
+.small-box {
+    margin-top: 15px;
+    background: rgba(255,255,255,0.9);
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="title">بحث سكربت B O K A</div>
+
+<button onclick="openPage()">الحصول على السكربت</button>
+
+<div id="page" style="display:none; margin-top:20px;">
+
+    <div class="box">
+        <div class="copy">
+            <span id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/mbark-hub/BOKA-ON-TOP-/refs/heads/main/main"))()</span>
+            <span onclick="copyText('scriptText')" style="cursor:pointer;">📋 نسخ</span>
+        </div>
+
+        <button onclick="copyDiscord()">نسخ الديسكورد</button>
+    </div>
+
+    <div class="small-box">
+        اي استفسار خش الدس وأفتح تكت لو تبي تشترك في السكربت تعال التكت
+    </div>
+
+</div>
+
+<script>
+function openPage(){
+    document.getElementById("page").style.display = "block";
+}
+
+function copyText(id){
+    let text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("تم النسخ");
+}
+
+function copyDiscord(){
+    navigator.clipboard.writeText("https://discord.gg/zQF9VG2qS");
+    alert("تم نسخ رابط الديسكورد");
+}
+</script>
+
+</body>
+</html>
